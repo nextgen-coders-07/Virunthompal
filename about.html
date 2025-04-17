@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Virunthompal</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f2f6fc, #e6ecf5);
+      background-size: 400% 400%;
+      animation: gradientBackground 15s ease infinite;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.5s ease;
+    }
+
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #4a90e2;
+      margin-bottom: 0.5rem;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      animation: slideUp 1.5s ease-out;
+    }
+
+    .container {
+      flex: 1;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .section {
+      max-width: 900px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #4a90e2;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+
+    .section ul li {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #4a90e2;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      background-color: #357abd;
+    }
+
+    .cta-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Virunthompal</h1>
+    <p>Your go-to website for finding Tamil recipes and cooking them based on what you have!</p>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>About Us</h2>
+      <p>Welcome to Virunthompal! We're a platform that brings the rich culinary heritage of Tamil cuisine right to your fingertips. Whether you're an experienced cook or a beginner, we make it easy for you to discover and prepare dishes that suit your taste and available ingredients.</p>
+      <p>Our unique search feature allows you to input the ingredients you already have in your kitchen. Based on those ingredients, we provide a list of recipes with step-by-step instructions. You can explore dishes from traditional Tamil meals to modern twists on your favorite recipes!</p>
+    </div>
+
+    <div class="section">
+      <h2>Our Mission</h2>
+      <p>Our goal is to help you unlock the potential of the ingredients in your pantry. No more wondering what to cook with what you have—just type in your ingredients, and we’ll show you the best Tamil recipes that you can prepare with them.</p>
+    </div>
+
+    <div class="section">
+      <h2>How It Works</h2>
+      <ul>
+        <li>Enter the ingredients you have in your kitchen into our search bar.</li>
+        <li>We'll filter and provide you with the best recipe options based on those ingredients.</li>
+        <li>Each recipe includes step-by-step instructions, cooking tips, and full ingredient lists for easy meal preparation.</li>
+        <li>Discover new dishes and explore the richness of Tamil cuisine from the comfort of your home!</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Start Cooking Today!</h2>
+      <p>Ready to start cooking with what you have? Enter your ingredients and discover your next meal now!</p>
+      <a href="/search" class="cta-button">Start Searching</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virunthompal </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f7fa;
+      color: #333;
+      display: flex;
+      height: 100vh;
+    }
+
+    nav {
+      width: 250px;
+      background: #ffffff;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #4a90e2;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      transition: 0.3s ease;
+    }
+
+    .nav-item:hover {
+      background-color: #eaf1f8;
+      color: #4a90e2;
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+      width: 25px;
+      text-align: center;
+    }
+
+    .main {
+      flex: 1;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .main h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .main p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        width: 70px;
+        padding: 1rem 0.5rem;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .nav-item span {
+        display: none;
+      }
+
+      .nav-item {
+        justify-content: center;
+        margin-bottom: 1.2rem;
+      }
+
+      .main {
+        padding: 2rem;
+      }
+
+      .main h1 {
+        font-size: 2rem;
+      }
+
+      .main p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">🍲 Virunthompal</div>
+    <a href="D:\Admin\Documents\OneDrive\Desktop\project 2\home.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="D:\Admin\Documents\OneDrive\Desktop\project 2\about.html" class="nav-item"><i class="fas fa-user"></i><span>About Us</span></a>
+    <a href="D:\Admin\Documents\OneDrive\Desktop\project 2\your_recipes.html" class="nav-item"><i class="fas fa-utensils"></i><span>My Recipes</span></a>
+    <a href="D:\Admin\Documents\OneDrive\Desktop\project 2\contact.html" class="nav-item"><i class="fas fa-envelope"></i><span>Contact</span></a>
+  </nav>
+
+  <div class="main">
+    <h1>Welcome to Virunthompal</h1>
+    <p>Your ultimate Tamil food dashboard. Explore 500+ dishes, filter by category, and enjoy step-by-step cooking instructions — all in one place.</p>
+  </div>
+</body>
+</html>

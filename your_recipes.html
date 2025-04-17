@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Recipe</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f2f6fc, #e6ecf5);
+      background-size: 400% 400%;
+      animation: gradientBackground 15s ease infinite;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.5s ease;
+    }
+
+    @keyframes gradientBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      padding: 3rem 2rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #4a90e2;
+      margin-bottom: 0.5rem;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      animation: slideUp 1.5s ease-out;
+    }
+
+    .container {
+      flex: 1;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .recipe-form {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      font-weight: bold;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+
+    .input-group textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #656faf;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #4b8ca8;
+    }
+
+    .recipe-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .recipe-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      position: relative;
+    }
+
+    .recipe-card h3 {
+      color: #4c81af;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .recipe-card p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .delete-btn:hover {
+      background-color: darkred;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Submit Your Recipe</h1>
+    <p>Share your favorite recipe and discover new ones!</p>
+  </header>
+
+  <div class="container">
+    <div class="recipe-form">
+      <form id="recipeForm" onsubmit="submitRecipe(event)">
+        <div class="input-group">
+          <label for="title">Recipe Title</label>
+          <input type="text" id="title" name="title" required placeholder="Enter recipe title">
+        </div>
+
+        <div class="input-group">
+          <label for="ingredients">Ingredients</label>
+          <textarea id="ingredients" name="ingredients" required placeholder="List ingredients, separated by commas"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="steps">Steps</label>
+          <textarea id="steps" name="steps" required placeholder="Write the steps"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label for="image">Recipe Image (Optional)</label>
+          <input type="file" id="image" name="image" accept="image/*">
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Recipe</button>
+      </form>
+    </div>
+
+    <div class="recipe-list" id="recipeList">
+      <!-- Submitted recipes will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to submit the recipe
+    function submitRecipe(event) {
+      event.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const ingredients = document.getElementById('ingredients').value;
+      const steps = document.getElementById('steps').value;
+      const imageFile = document.getElementById('image').files[0];
+
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        const recipe = {
+          title: title,
+          ingredients: ingredients,
+          steps: steps,
+          image: imageFile ? reader.result : null // Store image data as base64 if available
+        };
+
+        // Get existing recipes from localStorage or initialize to empty array
+        const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+        // Add the new recipe to the array
+        recipes.push(recipe);
+
+        // Save the updated recipes array to localStorage
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+
+        // Clear the form
+        document.getElementById('recipeForm').reset();
+
+        // Reload the recipes on the page
+        loadRecipes();
+      };
+
+      // If there is an image, read it as base64, else proceed without an image
+      if (imageFile) {
+        reader.readAsDataURL(imageFile);
+      } else {
+        // Proceed if no image
+        const recipe = {
+          title: title,
+          ingredients: ingredients,
+          steps: steps,
+          image: null
+        };
+
+        // Get existing recipes from localStorage or initialize to empty array
+        const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+
+        // Add the new recipe to the array
+        recipes.push(recipe);
+
+        // Save the updated recipes array to localStorage
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+
+        // Clear the form
+        document.getElementById('recipeForm').reset();
+
+        // Reload the recipes on the page
+        loadRecipes();
+      }
+    }
+
+    // Function to load and display recipes
+    function loadRecipes() {
+      const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+      const recipeList = document.getElementById('recipeList');
+      recipeList.innerHTML = '';
+
+      recipes.forEach((recipe, index) => {
+        const recipeCard = document.createElement('div');
+        recipeCard.classList.add('recipe-card');
+
+        recipeCard.innerHTML = `
+          <h3>${recipe.title}</h3>
+          <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+          <p><strong>Steps:</strong> ${recipe.steps}</p>
+          ${recipe.image ? `<img src="${recipe.image}" alt="${recipe.title}">` : ''}
+          <button class="delete-btn" onclick="deleteRecipe(${index})"><i class="fas fa-trash"></i></button>
+        `;
+
+        recipeList.appendChild(recipeCard);
+      });
+    }
+
+    // Function to delete a recipe
+    function deleteRecipe(index) {
+      const recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+      recipes.splice(index, 1); // Remove the recipe at the specified index
+
+      // Save the updated recipes array to localStorage
+      localStorage.setItem('recipes', JSON.stringify(recipes));
+
+      // Reload the recipes on the page
+      loadRecipes();
+    }
+
+    // Load the recipes on page load
+    window.onload = loadRecipes;
+  </script>
+</body>
+</html>
